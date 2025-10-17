@@ -1,0 +1,240 @@
+:root {
+  --bg: #0e0e0e;
+  --fg: #eaeaea;
+  --muted: #b0b0b0;
+  --line: #2a2a2a;
+  --link: #a8c0ff;
+  --link-hover: #c3d4ff;
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --fs-h1: clamp(28px, 4vw, 40px);
+  --fs-h2: clamp(16px, 2.4vw, 20px);
+  --fs-body: clamp(15px, 2vw, 17px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--fs-body);
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-3);
+}
+
+.title {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--s-2);
+  transition: color 0.3s ease;
+}
+
+.title:hover {
+  color: var(--link);
+}
+
+.description {
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  color: var(--fg);
+  margin: var(--s-5) 0 var(--s-3);
+}
+
+.avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 9999px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border: 1px solid var(--line);
+  display: block;
+  margin: 0 auto var(--s-4);
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  margin: 0 0 var(--s-4);
+}
+
+@supports not (aspect-ratio: 16/9) {
+  .video {
+    height: 0;
+    padding-bottom: 56.25%;
+  }
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-caption {
+  margin-top: var(--s-2);
+  color: var(--muted);
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.book-list,
+.list {
+  list-style: disc;
+  padding-left: 20px;
+  max-width: 720px;
+  margin: var(--s-4) auto;
+  text-align: left;
+}
+
+.book-list li,
+.list li {
+  margin-bottom: var(--s-2);
+  color: var(--muted);
+}
+
+.book-list a,
+.list a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.book-list a:hover,
+.list a:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.book-list small,
+.list small {
+  color: var(--muted);
+}
+
+a {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.hr {
+  height: 1px;
+  background: var(--line);
+  margin: var(--s-5) 0;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .section-title {
+    font-size: 1.1rem;
+  }
+  .avatar {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+.social-list {
+  list-style: none;
+  padding: 0;
+  max-width: 720px;
+  margin: var(--s-4) auto;
+  text-align: left;
+}
+
+.social-list li {
+  margin-bottom: var(--s-2);
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.social-list a {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.social-list a:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.github-cta {
+  max-width: 720px;
+  margin: var(--s-4) auto;
+  text-align: center;
+  padding: var(--s-4);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.github-cta p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: var(--s-2);
+}
+
+.github-link {
+  display: inline-block;
+  margin: var(--s-2) 0;
+  font-weight: 600;
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.github-link:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.github-hint {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: var(--s-2);
+}
